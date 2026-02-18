@@ -1,0 +1,1 @@
+<?php error_reporting(E_ALL); ini_set("display_errors", 1); session_start(); echo "Session: "; var_dump($_SESSION); echo "<hr>"; require_once __DIR__ . "/config/auth.php"; echo "Auth loaded<br>"; echo "Logged in: " . (isLoggedIn() ? "yes" : "no") . "<br>"; echo "Role: " . getUserRole() . "<br>"; echo "Test done."; ?>

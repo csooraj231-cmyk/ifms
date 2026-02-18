@@ -1,0 +1,105 @@
+/* IFMS - Theme overrides to match reference UI
+   Place color variables and component overrides here. Adjust as needed.
+*/
+:root{
+    --ifms-primary: #4f46e5; /* indigo-600 */
+    --ifms-accent: #06b6d4; /* teal-400 */
+    --ifms-bg: #f7fbff; /* light background */
+    --ifms-surface: #ffffff;
+    --ifms-muted: #64748b;
+    --ifms-card-shadow: 0 10px 30px rgba(79,70,229,0.08);
+}
+
+/* Base */
+body{
+    background: linear-gradient(180deg, var(--ifms-bg) 0%, #f1f5f9 100%);
+    color: #0f172a;
+}
+
+/* Improve glass look */
+.glass{
+    background: linear-gradient(135deg, rgba(255,255,255,0.75), rgba(250,250,255,0.6));
+    box-shadow: var(--ifms-card-shadow);
+}
+
+/* Top header */
+header[role="banner"], header{
+    background: linear-gradient(90deg, rgba(255,255,255,0.7), rgba(255,255,255,0.65));
+    border-radius: 14px;
+    border: 1px solid rgba(15,23,42,0.04);
+}
+
+/* Sidebar */
+.sidebar {
+    background: linear-gradient(180deg, rgba(79,70,229,0.06), rgba(124,58,237,0.03));
+}
+.sidebar .sidebar-item-active{
+    background: linear-gradient(90deg, var(--ifms-primary), var(--ifms-accent));
+    color: #fff !important;
+    box-shadow: 0 8px 30px rgba(79,70,229,0.18);
+}
+
+/* Buttons */
+.btn-primary, button.bg-indigo-600, .bg-indigo-600{
+    background: linear-gradient(90deg, var(--ifms-primary), var(--ifms-accent));
+    border: none;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(79,70,229,0.12);
+}
+.btn-primary:hover, button.bg-indigo-600:hover, .bg-indigo-600:hover{
+    transform: translateY(-1px);
+}
+
+/* Primary button utility (use on <a>, <button>, .btn-primary) */
+.btn-primary{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .65rem 1rem;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* Cards */
+.card, .rounded-3xl, .rounded-2xl {
+    background: var(--ifms-surface);
+    border: 1px solid rgba(15,23,42,0.04);
+    box-shadow: var(--ifms-card-shadow);
+}
+
+/* Toasts */
+#toast-container .flex, #toast-container .toast{
+    font-weight:600;
+    letter-spacing:0.2px;
+}
+
+/* Individual toast variations */
+#toast-container .toast[data-type="error"]{ background: linear-gradient(90deg,#ef4444,#dc2626); }
+#toast-container .toast[data-type="success"]{ background: linear-gradient(90deg,var(--ifms-primary),var(--ifms-accent)); }
+#toast-container .toast{ border-radius: 12px; }
+
+/* Modal content */
+.modal-content{
+    transition: transform .18s ease, opacity .18s ease;
+    border-radius: 18px;
+}
+
+/* Form inputs */
+input[type="text"], input[type="email"], input[type="password"], select, textarea{
+    background: #fbfdff;
+    border: 1px solid rgba(15,23,42,0.06);
+}
+
+/* Small helpers */
+.text-muted{ color: var(--ifms-muted); }
+
+/* Utility to force theme colors where Tailwind utilities used inline */
+.text-primary{ color: var(--ifms-primary) !important; }
+.bg-primary{ background: var(--ifms-primary) !important; color: #fff !important; }
+
+/* Responsive tweaks */
+@media (prefers-color-scheme: dark){
+    :root{ --ifms-bg: #0b1220; --ifms-surface:#071028; --ifms-muted: #94a3b8; }
+    body{ background: linear-gradient(180deg, #071028 0%, #050816 100%); color: #e6eef8; }
+}
